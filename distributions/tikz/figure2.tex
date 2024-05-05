@@ -1,0 +1,28 @@
+\documentclass[tikz]{standalone}
+
+\usepackage{pgfplots, pgfplotstable}
+\usepackage{tikz}
+
+\begin{document}
+\centering
+\begin{tikzpicture}[scale = 0.7]
+\begin{axis}[
+xlabel={$x$},
+ylabel={CDF},
+clip=false,
+ymin=0,ymax=1,
+xmin=-3, xmax=6
+]
+\addplot+[
+smooth,
+mark=none,
+blue,
+domain=-3:6,
+samples=63
+]  {1 / (1 + exp(-1.5*(x - 1)))};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+
+
+

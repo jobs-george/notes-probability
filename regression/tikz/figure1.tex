@@ -1,0 +1,28 @@
+\documentclass[tikz]{standalone}
+\usepackage{pgfplots}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}
+[
+xlabel={$x$},
+ylabel={$\widehat{y} = 0.703x^2$},
+xmin=0
+]
+\addplot+[
+no marks
+]{0.703*x^2};
+
+\addplot+[
+only marks
+]
+table[x=x, y=y] {
+x	y
+1	6
+2	5
+3	7
+4	10
+};
+
+\end{axis}
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,254 @@
+\include{../preamble}
+
+\begin{document}
+\maketitle
+\clearpage
+
+\section{Inequalities \& Limits}
+
+\subsection{Inequalities}
+
+\emph{Markov}. 
+For any random variable \(X\) and constant \(a > 0\),
+\begin{align}
+P\left( |X| \geq a \right) \leq \frac{E\left( |X| \right)}{a}
+\end{align}
+For an intuitive interpretation, 
+let \(X\) be the income of a randomly
+selected person from the population. 
+Taking \(a = 2E(X)\)
+\begin{align}
+P\left( |X| \geq 2E(X) \right) \leq \frac{1}{2}
+\end{align}
+which says that the probability an observed income is greater than twice
+the average must be less than ½, i.e., 
+it is impossible for more than
+half the population to make at least twice the average income.
+
+For concreteness, 
+imagine a sample, 0, 0, 2, 2, with average income of 1. 
+Half of the population have exactly twice the average income. 
+For the average to remain 1, 
+either the income must be lowered and shared between the other people, 
+e.g., 1, 1, 1, 1, 
+otherwise the income is increased in a single person, e.g., 0, 0, 0, 4, 
+decreasing the probability that \(X\) exceeds the average. 
+Any other combination must result in a change in the average. 
+Similarly, 
+you can't have more than a third of the population 
+earn three-times the average salary, i.e.,
+\(P\left( |X| \geq 3E\left( |X| \right) \right) \leq 1/3\).
+
+Markov's inequality is quite crude since \(E(|X|)/a\) can be any value,
+e.g., 1 or infinity (think Cauchy), 
+requiring no assumptions about \(X\). 
+Surprisingly, 
+from Markov's inequality we can derive two more
+useful bounds with no additional work.
+
+\emph{Chebyshev}. 
+Let \(X\) have mean, \(\mu\), and variance, \(\sigma^{2}\). 
+Then for \(a > 0\)
+\begin{align}
+P\left( |X - \mu| \geq a \right) \leq \frac{\sigma^{2}}{a^{2}}
+\end{align}
+\emph{Exercise}. 
+Prove Chebyshev's inequality using Markov's inequality. 
+
+For \(a = c\sigma\), \(c > 0\), 
+we have the following equivalent inequality.
+\begin{align}
+P\left( |X - \mu| \geq c\sigma \right) \leq \frac{1}{c^{2}}
+\end{align}
+This gives an upper bound on the probability of a random variable being
+more than \(c\) standard deviations away from its mean, 
+e.g., there can't be more than a 25\% chance of being 2 or more standard deviations
+away from the mean.
+
+\subsection{Weak Law of Large Numbers (LLN)}
+
+\emph{Weak law of large numbers}. 
+For all \(\varepsilon > 0\),
+\begin{align}
+P\left( \left| {\overline{X}}_{n} - \mu \right| > \varepsilon \right) \rightarrow 0,
+\end{align}
+as \(n \rightarrow \infty\), where
+\({n\overline{X}}_{n} = X_{1} + X_{2} + \cdots\) is the \emph{sample
+mean} of \(n\) IID random variables. 
+
+\emph{Exercise}. 
+Prove the weak LLN using Chebyshev's inequality.
+
+The law of large numbers is essential for simulations, 
+statistics, and science. 
+Consider generating ``data'' from a large number of independent 
+replications of an experiment, 
+performed either by computer simulation
+or in the real world. 
+Every time we use the average value in the
+replications of some quantity to approximate its theoretical average, 
+we are implicitly appealing to the LLN.
+
+\subsection{Coin Tosses}
+
+Let \(X_{1}\), \(X_{2}\), ... be IID \(Bern(1/2)\). 
+Interpreting the \(X_{j}\) as indicators of heads in a string of fair coin tosses,
+where the sample mean is the proportion of heads after \(n\) tosses. 
+The weak LLN says that for any \(\varepsilon > 0\), 
+the probability of the
+sample mean being more than \(\varepsilon\) away from 1/2 can be made as
+small as we like by letting \(n\) grow.
+
+In the supplementary code we use R to simulate sequences of coin tosses and compute 
+their average as
+a function of \(n\), the number of tosses.
+
+\emph{Exercise}. Does LLN contradict the fact that the coin is memoryless?
+
+\subsection{Central Limit Theorem}
+
+As in the previous example, 
+let \(X_{1}\), \(X_{2}\), ... be IID with mean \(\mu\) 
+and variance \(\sigma^{2}\). 
+The LLN says that \({\overline{X}}_{n}\) converges to \(\mu\) as \(n \rightarrow \infty\),
+but what is the distribution of \({\overline{X}}_{n}\)? 
+The \emph{central limit theorem} (CLT) provides the answer to this question.
+
+\emph{Central limit theorem}. As \(n \rightarrow \infty\),
+\begin{align}
+\sqrt{n}\left( \frac{{\overline{X}}_{n} - \mu}{\sigma} \right) \rightarrow N(0,\ 1)
+\end{align}
+In words, 
+the CDF (cumulative probability distribution) of the l.h.s.
+converges to the standard normal distribution.
+
+\emph{Proof}. Assume the \emph{moment generating function}\(M(t) = E(e^{tX_{j}})\) exists.
+Let \(M(t) = E(e^{tX_{j}})\), 
+and assume without loss of generality that \(\mu = 0\), 
+and \(\sigma^{2} = 1\). 
+Then, 
+\begin{equation}
+\begin{split}
+M(0) &= 1,\\
+M^{\prime}(0) &= E(X_{j}) = \mu = 0,\\
+M^{\prime\prime}(0) &= E\left( X_{j}^{2} \right) = \sigma^{2} = 1.
+\end{split}
+\end{equation}
+We want to show that the moment generating function (MGF) of
+\(\sqrt{n}\overline{X}_{n} = (X_{1} + X_{2}\ldots)/\sqrt{n}\)
+converges to the MGF of the Normal which is \(e^{t^{2}/2}\).
+
+By the property
+\(M\left( f\left( X_{1} + X_{2} \right) \right) = M(f\left( X_{1} \right) + f\left( X_{2} \right))\)
+\begin{equation}
+\begin{split}
+E\left( e^{t(X_{1} + X_{2}\ldots)/\sqrt{n})} \right) &= 
+E\left( e^{\frac{tX_{1}}{\sqrt{n}}} \right)E\left( e^{\frac{tX_{2}}{\sqrt{n}}} \right)\ldots \\
+&= \left( M\left( \frac{t}{\sqrt{n}} \right) \right)^{n}
+\end{split}
+\end{equation}
+Letting \(n \rightarrow \infty\), 
+we get the indeterminate form \(1^{\infty}\), 
+so instead we take the logarithm,
+\(n\log{M\left(\frac{t}{\sqrt{n}}\right)}\) and then exponentiate at the end
+\begin{equation}
+\begin{split}
+\lim_{n \rightarrow \infty}{n\log{M\left( \frac{t}{\sqrt{n}} \right)}} &= 
+\lim_{y \rightarrow 0}\frac{\log{M(yt)}}{y^{2}}\qquad \text{for}\,\,\,y = 1/\sqrt{n} \\
+&= \frac{t}{2}\lim_{y \rightarrow 0}\frac{tM^{\prime}(yt)}{2yM(yt)}\qquad\text{by L'Hopital's rule}\\&= 
+\frac{t}{2}\lim_{y \rightarrow 0}\frac{M^{\prime}(yt)}{y}\qquad \text{since}\,M(yt) \rightarrow 1\\
+&= \frac{t^{2}}{2}\lim_{y \rightarrow 0}{M^{\prime\prime}(yt)}\qquad \text{by L'Hopital's rule}
+\end{split}
+\end{equation}
+which gives \(t^{2}/2\), 
+hence the MGF approaches the \(N(0,1)\) MGF.
+
+Take a moment to understand the generality of this result. 
+The distribution of the individual \(X_{j}\) can be anything in the world,
+as long as the mean and variance are finite. 
+We could have a discrete distribution like the Binomial, 
+a bounded distribution like the Beta, 
+a skewed distribution like the Log-Normal, 
+or a distribution with multiple peaks and valleys. 
+No matter what, 
+the act of averaging will cause Normality to emerge.
+
+This does not mean that the distribution of the \(X_{j}\) is irrelevant, 
+however. 
+If the distribution is highly skewed or multimodal distribution, 
+we may need \(n\) to be very large before the Normal approximation becomes accurate.
+
+\subsection{Coin Tosses (Revisited)}
+
+In the previous example we used the LLN to conclude that \({\overline{X}}_{n}\), 
+the running proportion of heads, 
+converges to ½ for a large number of tosses. 
+Using the CLT, 
+we can now say more, i.e.,
+that \(E\left( {\overline{X}}_{n} \right) = 1/2\) and
+\(Var\left( {\overline{X}}_{n} \right) = 1/(4n)\), so for large \(n\)
+\begin{align}
+{\overline{X}}_{n} \sim N\left( \frac{1}{2},\frac{1}{4n} \right)
+\end{align}
+This information allows us to quantify the sample mean's deviation from the population mean.
+
+The CLT also says that the sample mean is approximately Normal with mean
+\(n\mu\) and variance \(n\sigma^{2}\). 
+
+\emph{Exercise}. 
+Show that this is true by simulation in R.
+
+\newpage
+\section{Discussion}
+
+Chebyshev's inequality says that for the random variable \(X\) with mean
+\(\mu\) and variance \(\sigma^{2}\), for \(a > 0\),
+\begin{align}
+P\left( |X - \mu| \geq a \right) \leq \frac{\sigma^{2}}{a^{2}}
+\end{align}
+From Markov's inequality we have
+\begin{align}
+P\left( |Z| \geq a \right) \leq \frac{E\left( |Z| \right)}{a}
+\end{align}
+For \(Y = X - \mu\) and \(Z = Y^{2}\), therefore,
+\begin{align}
+P\left( |Y| \geq a \right) = 
+P\left( Y^{2} \geq a^{2} \right) = 
+P\left( Z \geq a^{2} \right) = 
+\frac{E(Z)}{a^{2}} = 
+\frac{E(X - \mu)^{2}}{a^{2}} = 
+\frac{\sigma^{2}}{a^{2}}
+\end{align}
+The Weak Law of Large Numbers (WLLN) says that for all \(\varepsilon > 0\),
+\(P\left( \left| {\overline{X}}_{n} - \mu \right| > \varepsilon \right) \rightarrow 0\)
+as \(n \rightarrow \infty\). 
+\emph{Proof}. 
+Fix \(\varepsilon\) to some positive number. 
+By Chebyshev's inequality
+\begin{align}
+P\left( |Y - \mu| \geq c\sigma_{Y} \right) \leq \frac{1}{c^{2}}
+\end{align}
+with \(Y = {\overline{X}}_{n}\) and \(c = \frac{\varepsilon}{\sigma}\) we obtain
+\begin{align}
+P\left( \left| {\overline{X}}_{n} - \mu \right| \geq \varepsilon \right) \leq \frac{1}{\left( \frac{\varepsilon}{\sigma_{Y}} \right)^{2}} = 
+\frac{\sigma_{Y}^{2}}{\varepsilon^{2}} = 
+\frac{1}{n} \cdot \frac{\sigma_{X}^{2}}{\varepsilon^{2}}
+\end{align}
+The last step is because the sample mean itself has mean \(\mu\) and variance \(\sigma^{2}/n\), i.e.,
+\begin{align}
+E\left( {\overline{X}}_{n} \right) = 
+\frac{1}{n}E\left( X_{1} + X_{2} + \cdots \right) = 
+\frac{1}{n}\left( E\left( X_{1} \right) + E\left( X_{2} \right) + \cdots \right) = 
+\mu
+\end{align}
+and
+\begin{align}
+Var\left( {\overline{X}}_{n} \right) = 
+\frac{1}{n^{2}}E\left( X_{1} + X_{2} + \cdots \right) = 
+\frac{1}{n^{2}}\left( E\left( X_{1} \right) + E\left( X_{2} \right) + \cdots \right) = 
+\frac{\sigma^{2}}{n}
+\end{align}
+From the scaling property of variances
+\(Var(nX) = \sqrt{n} \cdot Var(X)\).
+
+\end{document}

@@ -1,0 +1,23 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{forest}
+\tikzset{
+dot/.style={circle, draw, inner sep=1},
+}
+\begin{document}
+\tiny
+\begin{forest}
+for tree={s sep=15pt,l sep=1cm,dot,grow=0}
+%
+[ ,name=1
+	[ ,name=2a, label={above:{\vdots}}
+		[ ,name=3a, label={above:{\vdots}}]
+		[ ,name=3b, label={above:{2/Jan}}]
+		[ ,name=3c, label={above:{1/Jan}}]
+	]
+	[ ,name=2b, label={above:{2/Jan}}]
+	[ ,name=2c, label={above:{1/Jan}}]
+]
+\end{forest}
+\end{document}
+

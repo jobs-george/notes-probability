@@ -1,0 +1,17 @@
+\documentclass[tikz]{standalone}
+\usepackage{pgfplots}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}
+[
+xlabel={$x$},
+ylabel={$f(x) = x^2 - x +4$},
+no marks
+]
+\addplot {x^2 - x +4};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+
+% see
+% https://pgfplots.sourceforge.net/gallery.html

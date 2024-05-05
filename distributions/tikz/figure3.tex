@@ -1,0 +1,33 @@
+\documentclass[tikz]{standalone}
+
+\usepackage{pgfplots}
+
+\begin{document}
+
+\pgfmathdeclarefunction{dnorm}{2}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
+}
+
+\begin{tikzpicture}
+\begin{axis}[
+domain=0:12, 
+samples=100,
+ymin=0,
+xmin=0,xmax=12,
+ytick={0.1, 0.2},
+clip=false]
+
+\addplot [fill=red!20, draw=none, domain=4:8] {dnorm(6.5,1.5)} \closedcycle;
+\addplot [thick] {dnorm(6.5,1.5)};
+
+\node[outer sep=0pt, circle, fill, inner sep=1.5pt, label={left:$(x,y)$}] (P) at (70,100) {};
+\node[label={below:$\{X=x\}$}] (Q) at (70,-40) {};
+\draw (Q) -- (P);
+
+\end{axis}
+\end{tikzpicture}
+
+\end{document}
+
+
+

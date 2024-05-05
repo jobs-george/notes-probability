@@ -1,0 +1,27 @@
+\documentclass[tikz]{standalone}
+\usepackage{pgfplots}
+
+\begin{document}
+\begin{tikzpicture}[
+declare function = {
+gamma(\x)=sqrt(2*pi)*\x^(\x-0.5)*exp(-\x)*exp(1/(12*\x));
+},
+declare function = {
+B(\alpha,\beta)=gamma(\alpha)*gamma(\beta)/gamma(\alpha+\beta);
+},
+declare function = {
+beta(\x,\alpha,\beta)=(1/B(\alpha,\beta))*(\x^(\alpha-1))*((1-\x)^(\beta-1));
+}
+]
+\begin{axis}[
+xmin =0, xmax = 1,
+ymin =0, ymax = 6,
+restrict y to domain=0:6,
+xlabel={$p$}, 
+ylabel={Prior PDF},
+]
+\addplot[color=blue, samples=50, smooth, 
+domain = 0:1] {beta(x, 1, 1)};
+\end{axis}
+\end{tikzpicture}
+\end{document}

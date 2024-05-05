@@ -1,0 +1,6 @@
+*.docx
+temp/
+
+# tex
+*.synctex.gz
+.Rproj.user
