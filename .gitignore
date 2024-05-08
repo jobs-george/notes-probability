@@ -1,6 +1,12 @@
+# generic
 *.docx
 temp/
 
 # tex
+*.aux
+*.dvi
+*.log
+*.out
+*.aux
 *.synctex.gz
 .Rproj.user

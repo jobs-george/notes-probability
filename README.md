@@ -1,16 +1,26 @@
 # Introduction
+
 A short course in Probability Theory & Statistics.
 
-1.	[Introduction](intro/main.pdf)
-2.	[Events](events/main.pdf)
-3.	[Counting](counting/main.pdf)
-4.	[Axioms](axioms/main.pdf)
-5.	[Conditioning](conditioning/main.pdf)
-6.	[Distributions](distributions/main.pdf)
-7.	[Conjugacy](conjugacy/main.pdf)
-8.	[Inequalities](inequalities/main.pdf)
-9.	[Simulation](simulation/main.pdf)
-10.	[Normal](normal/main.pdf)
-11.	[Intervals](intervals/main.pdf)
-12.	[Testing](testing/main.pdf)
-13.	[Solutions](solutions/main.pdf)
+-	[Introduction](00-intro/main.pdf)
+-	[Events](01-events/main.pdf)
+-	[Counting](02-counting/main.pdf)
+-	[Axioms](03-axioms/main.pdf)
+-	[Conditioning](04-conditioning/main.pdf)
+-	[Distributions](05-distributions/main.pdf)
+-	[Statistics](06-statistics/main.pdf)
+-	[Conjugacy](07-conjugacy/main.pdf)
+-	[Inequalities](08-inequalities/main.pdf)
+-	[Simulation](09-simulation/main.pdf)
+-	[Normal](10-normal/main.pdf)
+-	[Intervals](11-intervals/main.pdf)
+-	[Testing](12-testing/main.pdf)
+-	[Regression](13-regression/main.pdf)
+-	[Inference](14-inference/main.pdf)
+
+# Supplementary Material
+
+-	[Solutions](solutions/main.pdf)
+-	[Errata](errata/main.pdf)
+-	[Code](code/)
+
