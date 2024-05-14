@@ -1,8 +1,13 @@
-\include{../preamble}
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{../notes}
+
+\title{Probability Theory \& Statistics}
 
 \begin{document}
+
 \maketitle
-\clearpage
+\newpage
 
 \section{None-Naïve Probability}
 
@@ -37,7 +42,7 @@ the combination of outcomes from sets.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.9\linewidth]{tikz/figure1.pdf}
+\includestandalone[width=0.9\linewidth]{tikz/figure1}
 \caption{%
 Outcomes with different likelihoods of occurring.
 The event \(A\) is the set \(\{s_1, s_2\}\) with probabilities \(p_1=P(s_1)\) and
@@ -191,10 +196,6 @@ provided the expectation and variance exist and are finite,
 the distribution of the estimator will be Normal! 
 This is an astonishing result and well worth thinking about why.
 
-%Try running the following command in R to see this
-%
-%\begin{align}\text{hist(replicate(1000, sum(runif(1000))))}\end{align}
-
 An important ``real world'' consequence of the LLN and CLT is that they 
 theoretically guarantee (under certain conditions) that the average value in the replication 
 of some quantity approximates its theoretical average. 
@@ -210,7 +211,7 @@ drawn stays the same
 
 Then,
 \begin{itemize}
-\item by LLN, the average number of Heads in the experiment converges to ½. 
+\item by LLN, the average number of heads converges to ½. 
 \item by CLT, the distribution of the average will be Normal.
 \end{itemize}
 
