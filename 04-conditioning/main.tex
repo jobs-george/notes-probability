@@ -1,8 +1,13 @@
-\include{../preamble}
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{../notes}
+
+\title{Probability Theory \& Statistics}
 
 \begin{document}
+
 \maketitle
-\clearpage
+\newpage
 
 \section{Conditional Probability}
 
@@ -35,7 +40,7 @@ or speculate about what information we might get!}
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.75\linewidth]{tikz/figure1.pdf}
+\includestandalone[width=0.75\linewidth]{tikz/figure1}
 \caption{%
 The 2-flip coin experiment after observing \(B_{T}\), 
 the event ``at least 1 tail is observed'', 
@@ -132,7 +137,7 @@ the probability that both children are boys?}
 
 Attempt to answer the question before moving to the next part.
 
-\clearpage
+\newpage
 \subsubsection{Solution}
 
 Let \(G_{1}\) be the event the younger child is a girl,
@@ -276,7 +281,7 @@ what is the probability you picked the fair coin?
 
 Think about how to define the events and then try to use the LOTP to make the calculation easier.
 
-\clearpage
+\newpage
 \subsubsection{Solution}
 
 Let \(A\) be the event the coin landed heads three times and define \(F\) as the event we picked the fair coin. 
@@ -317,7 +322,7 @@ and she was sent to prison.
 
 What issues are there with this line of reasoning?
 
-\clearpage
+\newpage
 \subsubsection{Solution}
 
 The first issue is the assumption that 
@@ -376,7 +381,7 @@ Dr Dave has a better overall success rate!
 Use the rules of conditional probability to show that this is possible, 
 and when this might occur.
 
-\clearpage
+\newpage
 \subsubsection{Solution}
 
 Let \(A\) be the event of a successful surgery, 

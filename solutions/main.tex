@@ -1,73 +1,132 @@
-Day 11\textsuperscript{th} November 2021
+\documentclass[11pt,a4paper]{article}
 
-\section{Template}\label{template}
+\usepackage{../notes}
 
-\subsection{Header 2}\label{header-2}
+\usepackage{showframe} % debug overfill
 
-Some information about something
+\title{Notes Template}
 
-\section{Axioms}\label{axioms}
+\begin{document}
 
-\subsection{Questions}\label{questions}
+\maketitle
+\newpage
 
-1) Events \(A\) and \(B\) are \emph{independent} if
+\tableofcontents % optional toc
+\newpage
 
-\[P(A \cap B) = P(A)P(B)\]
+\section{Session Title}
 
-Give an example of independent Events illustrated as marbles in a finite
-sample space
+\subsection{Citations, References, and Figures}
 
-2) Consider the experiment of picking a random point in the unit square
+Some information from \cite{feller1968}, 
+and a figure \ref{fig:tikz1}.
 
-\[R = \{(x,y)\ :\ 0 < x < 1,\ 0 < y < 1\}\]
+\begin{figure}[!htb]
+\centering
+\includestandalone[width=0.5\linewidth]{tikz/figure1}
+\caption{Some Tikz.}
+\label{fig:tikz1}
+\end{figure}
 
-where the probability of the point being in any particular region
-contained within \(R\) is the area of that region, e.g., \(P(A) = ab\),
-for a rectangle with sides length \(a\) and \(b\). Let \(A_{1}\) and
-\(B_{1}\) be rectangles contained within \(R\), with areas not equal to
-0 or 1. Let \(A\) be the event that the random point is in \(A_{1}\),
-and \(B\) be the event that the random point is in \(B_{1}\).
+\subsection{Equations and More Figures}
 
-a) Give a geometric description of when it is true that \(A\) and \(B\)
-are independent and another example when they aren't independent.
+More information and an equation
+\begin{align}
+E = mc^2
+\end{align}
+and another figure
 
-b) Give a geometric description of conditional probability and show that
-independence implies that
+\begin{figure}[!htb]
+\centering
+\includestandalone[width=0.5\linewidth]{tikz/figure2}
+\caption{Some more Tikz.}
+\label{fig:tikz2}
+\end{figure}
 
-\[P\left( A \middle| B \right) = P(A)\]
+\subsection{Custom Commands and Formatted Text}
 
-c) Show that if \(A\) and \(B\) are independent, then
+A few custom defined commands, \(\bvec{u}\), \(\vpj{u}{v}\), \(\vrj{u}{v}\), \(\norm{u}\); 
+an accented word like résumé;
+some \hl{highlighted text}.
 
-\[P(A \cup B) = P(A) + P(B) - P(A)P(B) = 1 - P\left( A^{c} \right)P(B^{c})\]
+\pagebreak
 
-\subsection{Solutions}\label{solutions}
+\subsection{Tables and Matrices}
 
-1) The sequence of 2 ordered coin-flips example can be used as a
-solution. The Events ``\emph{the first flip is Heads''} and ``\emph{the
-second flip is Tails''} are independent. S
+A table \ref{tab:data}
 
-For example, the Events \(A_{HH}\) and \(B_{TT}\) are disjoint, but not
-independent, since
-\(P\left( A_{HH} \right) = P\left( B_{TT} \right) = 1/4\), but
-\(P\left( A_{HH} \cap B_{TT} \right) = 1/2 \neq 1/16\).
+\begin{table}[!htb]
+\centering
+\begin{tabular}{| c | c | c |}
+\hline
+A & B & C \\\hline
+2 & 3 & 3 \\\hline
+\end{tabular}
+\caption{%
+A table.
+}
+\label{tab:data}
+\end{table}
 
-\section{Bibliography}\label{bibliography}
+and a matrix
 
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.0357}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.9643}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-{[}1{]}
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-W. Feller, An Introduction to Probability Theory and Its Applications,
-Vol. 1, 3rd Edition, 3rd ed., Wiley, 1968.
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-{[}2{]} & W. Feller, An Introduction to Probability Theory and Its
-Applications, Vol. 2, 2nd Edition, 2nd ed., John Wiley \& Sons, Inc.,
-1971. \\
-\end{longtable}
+\begin{align}
+M =
+\begin{bmatrix}
+1 & 2 & 3 \\
+3 & 4 & 5 \\
+5 & 6 & 7
+\end{bmatrix}
+\end{align}
+
+\subsection{Code}
+
+\subsubsection{R Code}
+
+An inline R code block
+
+\begin{verbatim}
+# some comments
+foo <- function(a, b){
+    a * b
+}
+\end{verbatim}
+
+\subsubsection{Python Code}
+
+A sourced Python code block
+
+\verbatiminput{code/listing1.py}
+
+\subsection{Important Notes}
+
+\begin{important}
+This text is very important and needs to be highlighted
+at all costs!
+\begin{align}
+F = ma
+\end{align}
+\end{important}
+
+\clearpage
+
+\section{Discussion}
+
+Topics that arise during session discussions
+
+\section{Practice}
+
+\subsection{First Question Set}
+
+1) First question
+
+\subsection{Second Question Set}
+
+2) Next question
+
+\newpage
+
+\bibliography{references}
+\bibliographystyle{plain}
+
+\end{document}
