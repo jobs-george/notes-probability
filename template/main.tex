@@ -1,25 +1,114 @@
-\include{../preamble}
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{../notes}
+
+\usepackage{showframe} % debug overfill
+
+\title{Notes Template}
 
 \begin{document}
+
 \maketitle
-\clearpage
+\newpage
+
+\tableofcontents % optional toc
+\newpage
 
 \section{Session Title}
 
-\subsection{Section 1}
+\subsection{Citations, References, and Figures}
 
-Some information about something \cite{feller1968}
+Some information from \cite{feller1968}, 
+and a figure \ref{fig:tikz1}.
 
-\begin{figure}[h!]
+\begin{figure}[!htb]
 \centering
-\includegraphics[width=0.5\linewidth]{tikz/figure1}
+\includestandalone[width=0.5\linewidth]{tikz/figure1}
 \caption{Some Tikz.}
-\label{fig:tikz}
+\label{fig:tikz1}
 \end{figure}
 
-\subsection{Section 2}
+\subsection{Equations and More Figures}
 
-More information
+More information and an equation
+\begin{align}
+E = mc^2
+\end{align}
+and another figure
+
+\begin{figure}[!htb]
+\centering
+\includestandalone[width=0.5\linewidth]{tikz/figure2}
+\caption{Some more Tikz.}
+\label{fig:tikz2}
+\end{figure}
+
+\subsection{Custom Commands and Formatted Text}
+
+A few custom defined commands, \(\bvec{u}\), \(\vpj{u}{v}\), \(\vrj{u}{v}\), \(\norm{u}\); 
+an accented word like résumé;
+some \hl{highlighted text}.
+
+\pagebreak
+
+\subsection{Tables and Matrices}
+
+A table \ref{tab:data}
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{| c | c | c |}
+\hline
+A & B & C \\\hline
+2 & 3 & 3 \\\hline
+\end{tabular}
+\caption{%
+A table.
+}
+\label{tab:data}
+\end{table}
+
+and a matrix
+
+\begin{align}
+M =
+\begin{bmatrix}
+1 & 2 & 3 \\
+3 & 4 & 5 \\
+5 & 6 & 7
+\end{bmatrix}
+\end{align}
+
+\subsection{Code}
+
+\subsubsection{R Code}
+
+An inline R code block
+
+\begin{verbatim}
+# some comments
+foo <- function(a, b){
+    a * b
+}
+\end{verbatim}
+
+\subsubsection{Python Code}
+
+A sourced Python code block
+
+\verbatiminput{code/listing1.py}
+
+\subsection{Important Notes}
+
+\begin{important}
+This text is very important and needs to be highlighted
+at all costs!
+\begin{align}
+F = ma
+\end{align}
+\end{important}
+
+\clearpage
 
 \section{Discussion}
 
@@ -27,11 +116,11 @@ Topics that arise during session discussions
 
 \section{Practice}
 
-\subsection{Section A}
+\subsection{First Question Set}
 
 1) First question
 
-\subsection{Section B}
+\subsection{Second Question Set}
 
 2) Next question
 

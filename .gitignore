@@ -1,7 +1,3 @@
-# generic
-*.docx
-temp/
-
 # tex
 *.aux
 *.dvi
@@ -9,4 +5,17 @@ temp/
 *.out
 *.aux
 *.synctex.gz
-.Rproj.user
+*.fdb_latexmk
+*.fls
+
+*.bbl
+*.blg
+*.ilg
+*.ind
+
+*.toc
+
+# tex optional
+*.pdf
+*.eps
+!main.pdf
