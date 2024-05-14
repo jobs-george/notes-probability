@@ -1,8 +1,14 @@
-\include{../preamble}
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{../notes}
+
+\title{Probability Theory \& Statistics}
 
 \begin{document}
+
 \maketitle
-\clearpage
+\newpage
+
 
 \section{Beta-Binomial Conjugacy}
 
@@ -28,7 +34,7 @@ or ``1'' or ``0''.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.75\linewidth]{tikz/figure1.pdf}
+\includestandalone[width=0.75\linewidth]{tikz/figure1}
 \caption{The function \(X\), mapping \(s_{j}\) to the real number line.}
 \label{fig:mapping}
 \end{figure}
@@ -281,11 +287,11 @@ The posterior then is \(Beta(6,1)\) plotted in Figure \ref{fig:prior}
 \centering
 \begin{minipage}{.5\textwidth}
   \centering
-  \includegraphics[width=0.9\linewidth]{tikz/figure1.pdf}
+  \includestandalone[width=0.9\linewidth]{tikz/figure1}
 \end{minipage}%
 \begin{minipage}{.5\textwidth}
   \centering
-  \includegraphics[width=0.9\linewidth]{tikz/figure2.pdf}
+  \includestandalone[width=0.9\linewidth]{tikz/figure2}
 \end{minipage}
 \caption{%
 Uniform prior (left) and posterior \(Beta(6,1)\) of bias in 
