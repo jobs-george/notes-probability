@@ -1,8 +1,13 @@
-\include{../preamble}
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{../notes}
+
+\title{Probability Theory \& Statistics}
 
 \begin{document}
+
 \maketitle
-\clearpage
+\newpage
 
 \section{Inequalities \& Limits}
 
@@ -142,7 +147,7 @@ By the property
 \(M\left( f\left( X_{1} + X_{2} \right) \right) = M(f\left( X_{1} \right) + f\left( X_{2} \right))\)
 \begin{equation}
 \begin{split}
-E\left( e^{t(X_{1} + X_{2}\ldots)/\sqrt{n})} \right) &= 
+E\left( e^{t(X_{1} + X_{2}\ldots)/\sqrt{n}} \right) &= 
 E\left( e^{\frac{tX_{1}}{\sqrt{n}}} \right)E\left( e^{\frac{tX_{2}}{\sqrt{n}}} \right)\ldots \\
 &= \left( M\left( \frac{t}{\sqrt{n}} \right) \right)^{n}
 \end{split}
