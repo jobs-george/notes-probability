@@ -1,8 +1,13 @@
-\include{../preamble}
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{../notes}
+
+\title{Probability Theory \& Statistics}
 
 \begin{document}
+
 \maketitle
-\clearpage
+\newpage
 
 \section{Random Variables \& Distributions}
 
@@ -385,7 +390,6 @@ the function \(P(X = x|Z = z)\),
 when considered as a function of \(x\) for fixed \(z\), 
 is called the \emph{conditional PMF of \(X\) given \(Z = z\)}.
 
-\clearpage
 \subsubsection{Examples}
 
 \emph{Matching pennies}. 
@@ -603,7 +607,6 @@ without worrying about the value of \(p\) that originally generated the populati
 We can get from the Binomial to the Hypergeometric by conditioning. 
 How do we get from the Hypergeometric back to the Binomial?
 
-\clearpage
 \subsection{Counting Distributions}
 
 The Binomial and Hypergeometric distributions 
@@ -643,11 +646,11 @@ An r.v. has a \emph{continuous distribution} if its CDF is \emph{differentiable}
 \centering
 \begin{minipage}{.5\textwidth}
   \centering
-  \includegraphics{tikz/figure1.pdf}
+  \includestandalone{tikz/figure1}
 \end{minipage}%
 \begin{minipage}{.5\textwidth}
   \centering
-  \includegraphics{tikz/figure2.pdf}
+  \includestandalone{tikz/figure2}
 \end{minipage}
 \caption{%
 (Left) Cumulative Distribution Function (CDF) of a discrete r.v.; 
@@ -736,7 +739,7 @@ this is achieved by the \(dx\).
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.5\linewidth]{tikz/figure3.pdf}
+\includestandalone[width=0.5\linewidth]{tikz/figure3}
 \caption{%
 Uniformly sampling a random point \((x,y)\) under the curve 
 and letting \(X=x\) generates an r.v., \(X\), with this PDF.
