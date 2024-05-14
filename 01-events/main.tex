@@ -1,8 +1,15 @@
-\include{../preamble}
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{../notes}
+
+\usepackage{fdsymbol}
+
+\title{Probability Theory \& Statistics}
 
 \begin{document}
+
 \maketitle
-\clearpage
+\newpage
 
 \section{Sample Spaces \& Events}
 
@@ -44,7 +51,7 @@ the event ``at least one head is observed'' has occurred.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\linewidth]{tikz/figure1.pdf}
+\includestandalone[width=0.6\linewidth]{tikz/figure1}
 \caption{Sample space \(S\) of 2-flip coin outcomes \(s_{j}\), 
 and the events \(A_{H}\): ``at least one head is observed'' in blue, 
 \(B_{T}\): ``at least one tail is observed'' in red,
@@ -142,7 +149,7 @@ but it's more useful to think of the events as containing information about each
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=0.6\linewidth]{tikz/figure2.pdf}
+\includestandalone[width=0.6\linewidth]{tikz/figure2}
 \caption{%
 A 2-flip coin experiment outcome space after observing \(B_{T}\): ``at least 1 tail is observed'',
 means its complement the event \(\overline{B_{T}}\): ``no tails are observed'' cannot occur.}
