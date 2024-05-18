@@ -1,39 +1,19 @@
-# ..Prerequisites
-# .Sampling
-# The "sample" command generates pseudo random numbers *without* replacement
-n <- 10; k <- 5
-sample(n, k)
+---
+output: html_document
+---
 
-# Set replace to "TRUE" for sampling *with* replacement
-sample(n, k, replace = TRUE)
+# Counting
 
-# To generate a random permutation, use sample(n, n) or
-sample(n)
+## Birthday Matches
 
-# R can also draw from non-numeric vectors. For example
-sample(letters, 7)
+Imagine a room with $k$ people. 
+Assume that each person’s Birthday is equally likely.  
+Calculate the probability that 2 or more people have the same birthday.
 
-# The sample command also allows us to specify probabilities, e.g., where
-# 4 is more likely to be sampled, twice as much as 2,
-# and 4 times as likely as 1.
-sample(c(1, 2, 3, 4), 3, replace = TRUE, prob = c(0.1, 0.2, 0.3, 0.4))
+## Simulation
 
-# For sampling without replacement, the probabilities are redistributed by
-# solving the equation
-#
-# k*0.2 + k*0.3 + k*0.4 = 1
-#
-# The new probabilities will be 'proportional' to the original.
-
-# ..Birthday Matches
-# .Description
-# Imagine a room with k people. 
-# Assume that each person’s Birthday is equally likely.  
-# Calculate the probability that 2 or more people have the same birthday.
-
-# .Simulation
-# To simulate the birthday problem, 
-# use the sample function to choose 23 random birthdays
+To simulate the birthday problem, 
+use the sample function to choose 23 random birthdays
 b <- sample(1:365, k, replace = TRUE)
 table(b)
 

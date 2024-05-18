@@ -6,20 +6,38 @@ output: html_document
 
 ## Sampling
 
-The `sample` command generates realizations from finite sample spaces in R
+The `sample` command can generate pseudo random numbers _without_ replacement
 
 ```{r}
-set.seed(42)
-sample(x = c("heads", "tails"), size = 7, replace = TRUE)
+n <- 10; k <- 5
+sample(n, k)
 ```
 
-The `set.seed` command makes the realization(s) reproducible.
+Setting replace to "TRUE" for sampling _with_ replacement
+
+```{r}
+sample(n, k, replace = TRUE)
+```
+
+To generate a random permutation, use `sample(n, n)` or
+
+```{r}
+sample(n)
+```
+
+R can also draw from non-numeric vectors. 
+For example
+
+```{r}
+sample(letters, 7)
+```
 
 ## Naive Probability
 
 The `sample` command, unless specified, 
 will generate *equally likely* outcomes. 
-We can check this by computing the long-run frequency of the outcomes
+We can check this by computing the long-run frequency of two outcomes, 
+"heads" and "tails"
 
 ```{r}
 set.seed(42)
