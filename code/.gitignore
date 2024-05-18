@@ -2,3 +2,6 @@
 renv/
 .Rproj.user/
 .Rhistory
+
+# renders
+*.html
