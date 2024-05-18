@@ -4,3 +4,34 @@ output: html_document
 
 # Events
 
+## Sampling
+
+The `sample` command generates realizations from finite sample spaces in R
+
+```{r}
+set.seed(42)
+sample(x = c("heads", "tails"), size = 7, replace = TRUE)
+```
+
+The `set.seed` command makes the realization(s) reproducible.
+
+## Naive Probability
+
+The `sample` command, unless specified, 
+will generate *equally likely* outcomes. 
+We can check this by computing the long-run frequency of the outcomes
+
+```{r}
+set.seed(42)
+sample_size <- 1e5
+frequencies <- table(sample(c("heads", "tails"), sample_size, TRUE))
+(probabilities <- frequencies / sample_size)
+```
+
+The probability of the event "heads", $P(A_H)$, is approximated by the long-run frequency
+
+$$
+\frac{n_H}{n} = 0.503 \approx 1/2 = \frac{|A_H|}{|S|} = P(A_H)
+$$
+
+The events "tails" and "heads" are approximately equal, confirming that each outcome is equally likely.
