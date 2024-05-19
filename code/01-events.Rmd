@@ -6,14 +6,14 @@ output: html_document
 
 ## Sampling
 
-The `sample` command can generate pseudo random numbers _without_ replacement
+The `sample` command can generate pseudo random numbers *without* replacement
 
 ```{r}
 n <- 10; k <- 5
 sample(n, k)
 ```
 
-Setting replace to "TRUE" for sampling _with_ replacement
+Setting replace to "TRUE" for sampling *with* replacement
 
 ```{r}
 sample(n, k, replace = TRUE)
@@ -25,8 +25,7 @@ To generate a random permutation, use `sample(n, n)` or
 sample(n)
 ```
 
-R can also draw from non-numeric vectors. 
-For example
+R can also draw from non-numeric vectors. For example
 
 ```{r}
 sample(letters, 7)
@@ -34,10 +33,7 @@ sample(letters, 7)
 
 ## Naive Probability
 
-The `sample` command, unless specified, 
-will generate *equally likely* outcomes. 
-We can check this by computing the long-run frequency of two outcomes, 
-"heads" and "tails"
+The `sample` command, unless specified, will generate *equally likely* outcomes. We can check this by computing the long-run frequency of two outcomes, "heads" and "tails"
 
 ```{r}
 set.seed(42)
@@ -49,7 +45,7 @@ frequencies <- table(sample(c("heads", "tails"), sample_size, TRUE))
 The probability of the event "heads", $P(A_H)$, is approximated by the long-run frequency
 
 $$
-\frac{n_H}{n} = 0.503 \approx 1/2 = \frac{|A_H|}{|S|} = P(A_H)
+P(A_H) = \frac{|A_H|}{|S|} = 1/2 \approx \frac{n_H}{n} = 0.503
 $$
 
-The events "tails" and "heads" are approximately equal, confirming that each outcome is equally likely.
+The events "tails" and "heads" are approximately 1/2, confirming that each outcome is equally likely.
