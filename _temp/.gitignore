@@ -1,7 +1,0 @@
-# r code
-renv/
-.Rproj.user/
-.Rhistory
-
-# renders
-*.html
