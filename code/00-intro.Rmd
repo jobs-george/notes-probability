@@ -1,0 +1,86 @@
+---
+output: html_document
+---
+
+# Introduction
+
+## Scripts
+
+R Code is executed line-by-line with `Ctrl + Enter`
+
+```{r}
+print("hello world")
+```
+
+Full scripts can be run with `Ctrl + Shift + Enter`
+
+```{r}
+stopifnot(TRUE)
+```
+
+## Vectors
+
+R is built around vectors. (The most useful statistical object). Use the `c` (combine/concatenate) command to create a vector in R.
+
+```{r}
+v <- c(3,1,4,1,5,9)
+```
+
+Numbers are also (atomic) vectors. (Tip: `Alt + "-"` will generate the assignment notation.)
+
+```{r}
+n <- 110
+```
+
+There are many built-in functions, e.g., like `sum()` that adds all of the values in a vector. (Also: `max()`, `min()`, and `length()`.)
+
+```{r}
+sum(v)
+```
+
+A shortcut for creating a vector $1$ to $n$ is
+
+```{r}
+w <- 1:n
+```
+
+We can also define
+
+```{r}
+m <- 10; n <- 20
+```
+
+so that
+
+```{r}
+m:n
+```
+
+We can access the `i`th entry in a vector with `v[i]`, 
+where `v[1]` is the first entry
+
+```{r}
+v[c(1,3,5)]
+```
+
+We can also create a sub-vector by deleting entries. 
+Note, the brackets are needed because -2:4 generates -2, -1, 0,...
+
+```{r}
+v[-(2:4)]
+```
+
+Operations are interpreted component-wise. 
+For example, the following command generates ($1/1, 1/2^2, \ldots$)
+
+```{r}
+head(1/(1:100)^2)
+```
+
+In mathematics, 
+adding vectors `v + w` of different lengths is undefined. 
+In R, recycling is used.
+
+```{r}
+head(v + w)
+```

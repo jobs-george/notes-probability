@@ -1,0 +1,51 @@
+---
+output: html_document
+---
+
+# Events
+
+## Sampling
+
+The `sample` command can generate pseudo random numbers *without* replacement
+
+```{r}
+n <- 10; k <- 5
+sample(n, k)
+```
+
+Setting replace to "TRUE" for sampling *with* replacement
+
+```{r}
+sample(n, k, replace = TRUE)
+```
+
+To generate a random permutation, use `sample(n, n)` or
+
+```{r}
+sample(n)
+```
+
+R can also draw from non-numeric vectors. For example
+
+```{r}
+sample(letters, 7)
+```
+
+## Naive Probability
+
+The `sample` command, unless specified, will generate *equally likely* outcomes. We can check this by computing the long-run frequency of two outcomes, "heads" and "tails"
+
+```{r}
+set.seed(42)
+sample_size <- 1e5
+frequencies <- table(sample(c("heads", "tails"), sample_size, TRUE))
+(probabilities <- frequencies / sample_size)
+```
+
+The probability of the event "heads", $P(A_H)$, is approximated by the long-run frequency
+
+$$
+P(A_H) = \frac{|A_H|}{|S|} = 1/2 \approx \frac{n_H}{n} = 0.503
+$$
+
+The events "tails" and "heads" are approximately 1/2, confirming that each outcome is equally likely.
