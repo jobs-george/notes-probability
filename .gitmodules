@@ -1,3 +1,6 @@
 [submodule "code"]
 	path = code
 	url = https://github.com/jobs-george/notes-probability-code.git
+[submodule "notes"]
+	path = notes
+	url = https://github.com/jobs-george/notes.git

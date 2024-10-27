@@ -24,6 +24,14 @@ A short course in Probability Theory & Statistics.
 -	[Errata](errata/main.pdf)
 -	[Code](code/)
 
+# Developers
+
+Each session document is built with the command,
+
+```sh
+bash build.sh <session-directory>
+```
+
 # Roadmap
 
 Sessions with an asterisk aren't started. 
