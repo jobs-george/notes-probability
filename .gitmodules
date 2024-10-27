@@ -1,3 +1,3 @@
-[submodule "code"]
-	path = code
-	url = https://github.com/jobs-george/notes-probability-code.git
+[submodule "template"]
+	path = template
+	url = https://github.com/jobs-george/template-notes.git
